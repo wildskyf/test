@@ -16,7 +16,7 @@ self.addEventListener('install', e => {
 
 self.addEventListener('fetch', e => {
   e.respondWith(caches.match(e.request).then( res => {
-    console.log(res.text());
+    console.log(res.clone().text());
     if (res) {
       console.log('match');
       return res;
