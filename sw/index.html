@@ -14,8 +14,9 @@
           console.log(data);
         })
     };
+
     navigator.serviceWorker.register('sw.js').then(function(reg) {
-      console.log(reg);
+      console.log('register a service worker:', reg);
 
       if(reg.installing) {
         console.log('Service worker installing');
