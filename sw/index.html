@@ -8,30 +8,18 @@
   This is a page
   <img src="./big.jpg" alt="cat reflection">
   <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/test/sw/sw.js', { scope: '/test/sw/' })
+    .then( reg => {
 
-    var remoteFetch = () => {
-        fetch('https://api.womany.net/daily_quotes/').then( res => res.json() ).then( data => {
-          console.log(data);
-        })
-    };
+      console.log('登記成功：', reg);
 
-    navigator.serviceWorker.register('sw.js').then(function(reg) {
-      console.log('register a service worker:', reg);
+    }).catch( error => console.error('登記失敗：\n' + error));
+  }
+  else {
+    console.error("Your browser doesn't support service worker");
+  }
 
-      if(reg.installing) {
-        console.log('Service worker installing');
-      }
-      else if (reg.waiting) {
-        console.log('Service worker installed');
-      }
-      else if (reg.active) {
-        console.log('Service worker active');
-      }
-
-    }).catch(function(error) {
-      // registration failed
-      console.log('Registration failed with ' + error);
-    });
   </script>
 </body>
 </html>
