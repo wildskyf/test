@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <audio src="./music.mp3" controls></audio>
+  <input type="range" />
+
+  <script>
+    const audio = document.querySelector('audio');
+    const range_input = document.querySelector('input[type=range]');
+
+    const audioCtx = new AudioContext();
+    const src_input = audioCtx.createMediaElementSource(audio); // const input = audioCtx.createAudioSourceNode(audio);
+    const node = audioCtx.createGain();
+
+    range_input.oninput = () => node.gain.value = parseFloat(range_input.value);
+
+    src_input.connect(node);
+    node.connect(audioCtx.destination)
+  </script>
+</body>
+</html>
