@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>This website's title is really long you might not see all of it. || hey hey hey</title>
+  <script>
+    window.addEventListener('load', () => {
+      var $btn = document.querySelector('#insert-btn');
+      var $ip = document.querySelector('#insert-point');
+      
+      $btn.addEventListener('click', () => {
+        var rn = Math.random();
+        $ip.innerHTML += `<textarea id="${rn}_ta" name="${rn}_ta" cols="30" rows="10"></textarea>`;
+      });
+    });
+  </script>
 </head>
 <body>
   <textarea id="1_ta" name="1_ta" cols="30" rows="10"></textarea>
   <textarea id="2_ta" name="2_ta" cols="30" rows="10"></textarea>
   <textarea id="3_ta" name="3_ta" cols="30" rows="10"></textarea>
-  <textarea id="4_ta" name="4_ta" cols="30" rows="10"></textarea>
-  <textarea id="5_ta" name="5_ta" cols="30" rows="10"></textarea>
-  <textarea id="6_ta" name="6_ta" cols="30" rows="10"></textarea>
-  <textarea id="7_ta" name="7_ta" cols="30" rows="10"></textarea>
+  
+  <button id="insert-btn">click to create new textarea</button>
+  <div id="insert-point"></div>
 </body>
 </html>
