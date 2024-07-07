@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+    <img
+      id='img'
+      src='https://blog.wildsky.cc/images/hope-house-press-leather-diary-studio-h3sAF1cVURw-unsplash.jpg'
+    />
+
+    <script>
+      (() => {
+        const onClick = () => {
+          var a = document.createElement('a');
+          a.href = "https://blog.wildsky.cc/images/hope-house-press-leather-diary-studio-h3sAF1cVURw-unsplash.jpg";
+          a.download = "test.jpg";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+
+        const $img = document.querySelector('#img')
+        $img.addEventListener('click', onClick)
+      })()
+    </script>
+</body>
+</html>
